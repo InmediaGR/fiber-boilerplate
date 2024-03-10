@@ -38,6 +38,17 @@ services:
 
     # networks:
     #   - default
+  postgres:
+    image: postgres:latest
+    container_name: fiber-postgres
+    ports:
+      - "5432:5432"
+    #    networks:
+    #      - localdev
+    environment:
+      - POSTGRES_USER=postgres # The PostgreSQL user (useful to connect to the database)
+      - POSTGRES_PASSWORD=postgres # The PostgreSQL password (useful to connect to the database)
+      - POSTGRES_DB=casbin # The PostgreSQL default database (automatically created at first launch)
   mariadb:
     image: mariadb:latest
     container_name: fiber-mariadb
